@@ -1227,6 +1227,12 @@ class Astra_Target_Rules_Fields {
 				$current_id = get_the_id();
 			}
 
+			// if ( defined( 'ICL_SITEPRESS_VERSION' ) ) {
+			// 	$default_lang = apply_filters( 'wpml_default_language', '' );
+			// 	$post_type 	= get_post_type( $current_id );
+			// 	$current_id = apply_filters( 'wpml_object_id', $current_id, $post_type, true, $default_lang );
+			// }
+
 			self::$current_page_data['ID'] = $current_id;
 			self::$current_page_type       = $page_type;
 		}
@@ -1347,6 +1353,16 @@ class Astra_Target_Rules_Fields {
 					'id'       => $local_post->ID,
 					'location' => unserialize( $local_post->meta_value ),
 				);
+			}
+
+			if ( defined( 'ICL_SITEPRESS_VERSION' ) ) {
+				$default_lang = apply_filters( 'wpml_default_language', '' );
+				$current_lang = apply_filters( 'wpml_current_language', '' );
+				$post_type 	= get_post_type( $current_post_id );
+				$current_id = apply_filters( 'wpml_object_id', $current_post_id, $post_type, true, $default_lang );
+				error_log( 'current id: ' . $current_id );
+				error_log( 'Default lang: ' . $default_lang );
+				error_log( 'Current lang: ' . $current_lang );
 			}
 
 			$option['current_post_id'] = $current_post_id;

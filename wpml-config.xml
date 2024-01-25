@@ -68,4 +68,10 @@
 			</fields>
 		</widget>
 	</elementor-widgets>
+	<custom-fields>
+		<custom-field action="copy">ehf_template_type</custom-field>
+		<custom-field action="copy">ehf_target_user_roles</custom-field>
+		<custom-field action="copy">ehf_target_include_locations</custom-field>
+		<custom-field action="copy">ehf_target_exclude_locations</custom-field>
+	</custom-fields>
 </wpml-config>
